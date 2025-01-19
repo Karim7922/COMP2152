@@ -1,0 +1,36 @@
+import random
+
+choices = ["Rock", "paper", "Scissors"]
+
+
+def main():
+    try:
+        user_input = input("Enter your choice (Rock, Paper, Scissors): ").capitalize()
+
+        
+        if user_input not in choices:
+            raise ValueError("Invalid choice!, Please enter Rock, Paper, Scissors")
+
+        playerChoice = choices.index(user_input)
+
+        computerChoice = random.randint(0, 2)
+
+        print(f"Player choice {choices[playerChoice]}")
+        print(f"Computer choice {choices[computerChoice]}")
+
+
+        # Determine the winer
+        if playerChoice == computerChoice:
+            print("It's a tie!")
+        elif (playerChoice == 0 and computerChoice == 2) or \
+            (playerChoice == 1 and computerChoice == 0) or \
+            (playerChoice == 2 and computerChoice == 1):
+            print("Player wins")
+        else:
+            print("Computer wins!")
+   
+    except ValueError as e:
+        print(f"Error {e}")
+
+if __name__ == "__main__":
+    main()
